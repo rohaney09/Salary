@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AccountDAO {
 
-    public List<Account> getAllAccounts() throws SQLException {
+    public List<Account> getAllAccounts()throws SQLException {
         List<Account> accounts = new ArrayList<>();
         String query = "SELECT * FROM sal";
 
@@ -34,7 +34,7 @@ public class AccountDAO {
         return rs.next() ? rs.getDouble("balance") : -1;
     }
 
-    public int updateBalance(int accNo, double amount, Connection conn, boolean debit) throws SQLException {
+    public int updateBalance(int accNo, double amount,Connection conn, boolean debit) throws SQLException {
         String sql = debit ?
                 "UPDATE sal SET balance = balance - ? WHERE acc_number = ?" :
                 "UPDATE sal SET balance = balance + ? WHERE acc_number = ?";
